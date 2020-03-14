@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Subject {
+enum Subject: String {
     case art
     case history
     case math

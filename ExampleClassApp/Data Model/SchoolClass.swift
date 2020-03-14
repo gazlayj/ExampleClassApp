@@ -14,3 +14,14 @@ struct SchoolClass {
     let teacher: Person
     let students: Set<Person>
 }
+
+// MARK: - Dummy Data for development
+extension SchoolClass {
+    static let defaultClasses = [
+        SchoolClass(name: "painting", subject: .art, teacher: .defaultTeacher, students: Set(Person.defaultStudents)),
+        SchoolClass(name: "drawing", subject: .art, teacher: .defaultTeacher, students: Set(Person.defaultStudents)),
+        SchoolClass(name: "world history", subject: .history, teacher: .defaultTeacher, students: Set(Person.defaultStudents)),
+        SchoolClass(name: "Calculus", subject: .math, teacher: .defaultTeacher, students: Set(Person.defaultStudents)),
+        SchoolClass(name: "Geometry", subject: .math, teacher: .defaultTeacher, students: Set(Person.defaultStudents))
+    ]
+}
