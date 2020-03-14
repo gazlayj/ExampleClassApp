@@ -8,12 +8,29 @@
 
 import Foundation
 
-class ClassesViewModel {
+class ClassesViewModel: NSObject {
     let title = "All Classes"
-    private(set) var classes: [SchoolClass]
+    
+    @objc dynamic private(set) var classesUpdated = false
+    private(set) var classes: [SchoolClass] {
+        didSet { classesUpdated = true }
+    }
+    
+    private let allClasses: [SchoolClass]
     
     init(classes: [SchoolClass]) {
+        self.allClasses = classes
         self.classes = classes
+    }
+    
+    func apply(filter: String) {
+        guard !filter.isEmpty else {
+            classes = allClasses
+            return
+        }
+        
+        let lowercasedFilter = filter.lowercased()
+        classes = allClasses.filter { $0.name.lowercased().contains(lowercasedFilter) || $0.subject.rawValue.lowercased().contains(lowercasedFilter) }
     }
     
     func titleForClass(at index: Int) -> String {

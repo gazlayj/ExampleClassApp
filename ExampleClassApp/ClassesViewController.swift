@@ -11,6 +11,14 @@ import UIKit
 class ClassesViewController: UIViewController {
     
     // MARK: - Views
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +29,7 @@ class ClassesViewController: UIViewController {
     
     // MARK: - Private Properties
     private let viewModel: ClassesViewModel
+    private var viewModelObservers: [NSKeyValueObservation]?
     
     // MARK: - Lifecycle
     init(viewModel: ClassesViewModel) {
@@ -36,9 +45,14 @@ class ClassesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(searchBar)
         view.addSubview(tableView)
+        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
@@ -47,8 +61,17 @@ class ClassesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModelObservers = [
+            viewModel.observe(\.classesUpdated) { [weak self] _, _ in self?.tableView.reloadData() }
+        ]
+        
         title = viewModel.title
         tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModelObservers = nil
     }
 }
 
@@ -64,6 +87,13 @@ extension ClassesViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = viewModel.subjectForClass(at: indexPath.row)
         cell.accessoryType = .disclosureIndicator
         return cell
+    }
+}
+
+// MARK:
+extension ClassesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.apply(filter: searchText)
     }
 }
 
