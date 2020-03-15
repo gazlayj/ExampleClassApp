@@ -60,6 +60,8 @@ class ClassesViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +77,14 @@ class ClassesViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         viewModelObservers = nil
+    }
+    
+    // MARK: - Private Methods
+    @objc func addTapped() {
+        let addClassVC = EditClassViewController(viewModel.makeAddClassViewModel())
+        addClassVC.delegate = self
+        let navVC = UINavigationController(rootViewController: addClassVC)
+        navigationController?.present(navVC, animated: true)
     }
 }
 
@@ -106,6 +116,14 @@ extension ClassesViewController: UITableViewDelegate {
 extension ClassesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.apply(filter: searchText)
+    }
+}
+
+// MARK: - EditClassViewControllerDelegate
+extension ClassesViewController: EditClassViewControllerDelegate {
+    func editViewController(_ viewController: EditClassViewController, didSaveEdits: Bool) {
+        searchBar.text = nil
+        viewModel.refreshClasses()
     }
 }
 

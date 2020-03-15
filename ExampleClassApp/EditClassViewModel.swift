@@ -9,7 +9,7 @@
 import Foundation
 
 class EditClassViewModel: NSObject {
-    let title = "Edit Class"
+    let title: String
     
     let editNameTitle = "Name:"
     let namePlaceholder = "Enter class name"
@@ -32,7 +32,8 @@ class EditClassViewModel: NSObject {
     private var schoolClass: SchoolClass?
     
     
-    init(schoolClass: SchoolClass?, classUpdater: ClassUpdating) {
+    init(title: String, schoolClass: SchoolClass?, classUpdater: ClassUpdating) {
+        self.title = title
         self.schoolClass = schoolClass
         self.classUpdater = classUpdater
         self.name = schoolClass?.name.capitalized

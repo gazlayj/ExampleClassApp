@@ -16,11 +16,13 @@ class ClassesViewModel: NSObject {
         didSet { classesUpdated = true }
     }
     
-    private let allClasses: [SchoolClass]
+    private var allClasses: [SchoolClass]
+    private let classFetcher: ClassFetching
     
-    init(classes: [SchoolClass]) {
+    init(classes: [SchoolClass], classFetcher: ClassFetching) {
         self.allClasses = classes
         self.classes = classes
+        self.classFetcher = classFetcher
     }
     
     func apply(filter: String) {
@@ -46,5 +48,14 @@ class ClassesViewModel: NSObject {
     func classViewModel(at index: Int) -> ClassViewModel {
         guard classes.count > index else { fatalError("index out of bounds") }
         return ClassViewModel(schoolClass: classes[index], classFetcher: Repository.shared.classFetcher)
+    }
+    
+    func makeAddClassViewModel() -> EditClassViewModel {
+        return EditClassViewModel(title: "Add Class", schoolClass: nil, classUpdater: Repository.shared.classUpdater)
+    }
+    
+    func refreshClasses() {
+        allClasses = classFetcher.fetchAllClasses()
+        classes = allClasses
     }
 }

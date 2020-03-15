@@ -42,8 +42,6 @@ class ClassViewModel {
 
 extension ClassViewModel {
     func makeEditClassViewModel() -> EditClassViewModel {
-        return EditClassViewModel(schoolClass: schoolClass, classUpdater: Repository.shared.classUpdater)
+        return EditClassViewModel(title: "Edit Class", schoolClass: schoolClass, classUpdater: Repository.shared.classUpdater)
     }
-    
-
 }
