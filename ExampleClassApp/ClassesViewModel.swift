@@ -45,6 +45,6 @@ class ClassesViewModel: NSObject {
     
     func classViewModel(at index: Int) -> ClassViewModel {
         guard classes.count > index else { fatalError("index out of bounds") }
-        return ClassViewModel(schoolClass: classes[index])
+        return ClassViewModel(schoolClass: classes[index], classFetcher: Repository.shared.classFetcher)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Subject.swift
+//  PeopleFetching.swift
 //  ExampleClassApp
 //
 //  Created by Justin Gazlay on 3/14/20.
@@ -8,10 +8,7 @@
 
 import Foundation
 
-enum Subject: String, Codable, CaseIterable {
-    case art
-    case history
-    case math
-    case reading
-    case science
+protocol PeopleFetching {
+    func fetchAllPeople() -> [Person]
+    func fetchPerson(withId id: UUID) -> Person?
 }

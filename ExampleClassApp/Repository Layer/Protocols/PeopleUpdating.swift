@@ -1,5 +1,5 @@
 //
-//  Subject.swift
+//  PeopleUpdating.swift
 //  ExampleClassApp
 //
 //  Created by Justin Gazlay on 3/14/20.
@@ -8,10 +8,8 @@
 
 import Foundation
 
-enum Subject: String, Codable, CaseIterable {
-    case art
-    case history
-    case math
-    case reading
-    case science
+protocol PeopleUpdating {
+    func add(_ person: Person)
+    func delete(_ person: Person)
+    func update(_ person: Person)
 }

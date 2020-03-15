@@ -25,6 +25,7 @@ class ClassViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(StudentTableViewCell.self, forCellReuseIdentifier: StudentTableViewCell.reuseId)
         tableView.dataSource = self
+        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -47,9 +48,6 @@ class ClassViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        title = viewModel.title + " - " + viewModel.subject
-        teacherView.text = viewModel.teacherName
-        
         view.addSubview(teacherView)
         view.addSubview(studentTableView)
         
@@ -62,14 +60,30 @@ class ClassViewController: UIViewController {
             studentTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             studentTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        studentTableView.reloadData()
+        observeViewModel()
     }
     
+    // MARK: - Methods
+    @objc func editButtonTapped() {
+        let editClassVC = EditClassViewController(viewModel.makeEditClassViewModel())
+        editClassVC.delegate = self
+        let navVC = UINavigationController(rootViewController: editClassVC)
+        navigationController?.present(navVC, animated: true)
+    }
+    
+    // MARK: - Private Methods
+    func observeViewModel() {
+        title = viewModel.title + " - " + viewModel.subject
+        teacherView.text = viewModel.teacherName
+        studentTableView.reloadData()
+    }
 }
 
 extension ClassViewController: UITableViewDataSource {
@@ -81,5 +95,12 @@ extension ClassViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: StudentTableViewCell.reuseId, for: indexPath)
         (cell as? StudentTableViewCell)?.update(with: viewModel.students[indexPath.row])
         return cell
+    }
+}
+
+extension ClassViewController: EditClassViewControllerDelegate {
+    func editViewController(_ viewController: EditClassViewController, didSaveEdits: Bool) {
+        viewModel.refresh()
+        observeViewModel()
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-struct Person: Hashable {
+struct Person: Hashable{
     let id: UUID
     let firstName: String
     let lastName: String

@@ -21,6 +21,15 @@
 		2593F8D1241DC8D10077914C /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8D0241DC8D10077914C /* ClassViewController.swift */; };
 		2593F8D3241DCA290077914C /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8D2241DCA290077914C /* StudentTableViewCell.swift */; };
 		2593F8D5241DCA520077914C /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8D4241DCA520077914C /* PersonViewModel.swift */; };
+		2593F8D7241DDE440077914C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8D6241DDE440077914C /* Repository.swift */; };
+		2593F8DA241DE8FC0077914C /* ClassRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8D9241DE8FC0077914C /* ClassRepository.swift */; };
+		2593F8DC241DE9A00077914C /* PeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8DB241DE9A00077914C /* PeopleRepository.swift */; };
+		2593F8DE241DEAE10077914C /* ClassFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8DD241DEAE10077914C /* ClassFetching.swift */; };
+		2593F8E0241DEAFA0077914C /* ClassUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8DF241DEAFA0077914C /* ClassUpdating.swift */; };
+		2593F8E2241DEB0B0077914C /* PeopleFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8E1241DEB0B0077914C /* PeopleFetching.swift */; };
+		2593F8E4241DEB1A0077914C /* PeopleUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8E3241DEB1A0077914C /* PeopleUpdating.swift */; };
+		2593F8E7241DEB940077914C /* EditClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8E6241DEB940077914C /* EditClassViewModel.swift */; };
+		2593F8E9241DEF110077914C /* EditClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8E8241DEF110077914C /* EditClassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +49,15 @@
 		2593F8D0241DC8D10077914C /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
 		2593F8D2241DCA290077914C /* StudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
 		2593F8D4241DCA520077914C /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
+		2593F8D6241DDE440077914C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		2593F8D9241DE8FC0077914C /* ClassRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRepository.swift; sourceTree = "<group>"; };
+		2593F8DB241DE9A00077914C /* PeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleRepository.swift; sourceTree = "<group>"; };
+		2593F8DD241DEAE10077914C /* ClassFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassFetching.swift; sourceTree = "<group>"; };
+		2593F8DF241DEAFA0077914C /* ClassUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassUpdating.swift; sourceTree = "<group>"; };
+		2593F8E1241DEB0B0077914C /* PeopleFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleFetching.swift; sourceTree = "<group>"; };
+		2593F8E3241DEB1A0077914C /* PeopleUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleUpdating.swift; sourceTree = "<group>"; };
+		2593F8E6241DEB940077914C /* EditClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClassViewModel.swift; sourceTree = "<group>"; };
+		2593F8E8241DEF110077914C /* EditClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClassViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +93,15 @@
 				250673A5241D84D7004F622D /* AppDelegate.swift */,
 				250673A7241D84D7004F622D /* SceneDelegate.swift */,
 				250673A9241D84D7004F622D /* ClassesViewController.swift */,
+				2593F8E6241DEB940077914C /* EditClassViewModel.swift */,
+				2593F8E8241DEF110077914C /* EditClassViewController.swift */,
 				2593F8CC241D94050077914C /* ClassTableViewCell.swift */,
 				2593F8CA241D8CA60077914C /* ClassesViewModel.swift */,
 				2593F8CE241DC65B0077914C /* ClassViewModel.swift */,
 				2593F8D0241DC8D10077914C /* ClassViewController.swift */,
 				2593F8D2241DCA290077914C /* StudentTableViewCell.swift */,
 				2593F8D4241DCA520077914C /* PersonViewModel.swift */,
+				2593F8D8241DE28A0077914C /* Repository Layer */,
 				250673BD241D89EE004F622D /* Data Model */,
 				250673AE241D84D9004F622D /* Assets.xcassets */,
 				250673B0241D84D9004F622D /* LaunchScreen.storyboard */,
@@ -97,6 +118,28 @@
 				250673BB241D8870004F622D /* SchoolClass.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		2593F8D8241DE28A0077914C /* Repository Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2593F8D9241DE8FC0077914C /* ClassRepository.swift */,
+				2593F8DB241DE9A00077914C /* PeopleRepository.swift */,
+				2593F8D6241DDE440077914C /* Repository.swift */,
+				2593F8E5241DEB3C0077914C /* Protocols */,
+			);
+			path = "Repository Layer";
+			sourceTree = "<group>";
+		};
+		2593F8E5241DEB3C0077914C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2593F8DD241DEAE10077914C /* ClassFetching.swift */,
+				2593F8DF241DEAFA0077914C /* ClassUpdating.swift */,
+				2593F8E1241DEB0B0077914C /* PeopleFetching.swift */,
+				2593F8E3241DEB1A0077914C /* PeopleUpdating.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,12 +215,21 @@
 				2593F8D5241DCA520077914C /* PersonViewModel.swift in Sources */,
 				250673BF241D8A9D004F622D /* Subject.swift in Sources */,
 				2593F8D1241DC8D10077914C /* ClassViewController.swift in Sources */,
+				2593F8D7241DDE440077914C /* Repository.swift in Sources */,
 				250673AA241D84D7004F622D /* ClassesViewController.swift in Sources */,
 				250673BC241D8870004F622D /* SchoolClass.swift in Sources */,
 				250673A6241D84D7004F622D /* AppDelegate.swift in Sources */,
+				2593F8DC241DE9A00077914C /* PeopleRepository.swift in Sources */,
 				2593F8CD241D94050077914C /* ClassTableViewCell.swift in Sources */,
 				2593F8CB241D8CA60077914C /* ClassesViewModel.swift in Sources */,
+				2593F8E4241DEB1A0077914C /* PeopleUpdating.swift in Sources */,
+				2593F8E7241DEB940077914C /* EditClassViewModel.swift in Sources */,
+				2593F8E2241DEB0B0077914C /* PeopleFetching.swift in Sources */,
+				2593F8E0241DEAFA0077914C /* ClassUpdating.swift in Sources */,
 				250673BA241D8805004F622D /* Person.swift in Sources */,
+				2593F8E9241DEF110077914C /* EditClassViewController.swift in Sources */,
+				2593F8DA241DE8FC0077914C /* ClassRepository.swift in Sources */,
+				2593F8DE241DEAE10077914C /* ClassFetching.swift in Sources */,
 				2593F8CF241DC65B0077914C /* ClassViewModel.swift in Sources */,
 				2593F8D3241DCA290077914C /* StudentTableViewCell.swift in Sources */,
 				250673A8241D84D7004F622D /* SceneDelegate.swift in Sources */,

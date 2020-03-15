@@ -1,5 +1,5 @@
 //
-//  Subject.swift
+//  ClassFetching.swift
 //  ExampleClassApp
 //
 //  Created by Justin Gazlay on 3/14/20.
@@ -8,10 +8,7 @@
 
 import Foundation
 
-enum Subject: String, Codable, CaseIterable {
-    case art
-    case history
-    case math
-    case reading
-    case science
+protocol ClassFetching {
+    func fetchAllClasses() -> [SchoolClass]
+    func fetchClass(withId id: UUID) -> SchoolClass?
 }
