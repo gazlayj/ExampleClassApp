@@ -42,4 +42,9 @@ class ClassesViewModel: NSObject {
         guard classes.count > index else { return nil }
         return classes[index].subject.rawValue.capitalized
     }
+    
+    func classViewModel(at index: Int) -> ClassViewModel {
+        guard classes.count > index else { fatalError("index out of bounds") }
+        return ClassViewModel(schoolClass: classes[index])
+    }
 }

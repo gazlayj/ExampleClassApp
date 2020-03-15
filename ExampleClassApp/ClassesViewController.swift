@@ -22,8 +22,9 @@ class ClassesViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = self
         tableView.register(ClassTableViewCell.self, forCellReuseIdentifier: ClassTableViewCell.reuseId)
+        tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -44,6 +45,8 @@ class ClassesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
         
         view.addSubview(searchBar)
         view.addSubview(tableView)
@@ -90,7 +93,16 @@ extension ClassesViewController: UITableViewDataSource {
     }
 }
 
-// MARK:
+// MARK: - UITableViewDelegate
+extension ClassesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defer { tableView.deselectRow(at: indexPath, animated: false) }
+        let classVC = ClassViewController(viewModel.classViewModel(at: indexPath.row))
+        navigationController?.pushViewController(classVC, animated: true)
+    }
+}
+
+// MARK: - UISearchBarDelegate
 extension ClassesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.apply(filter: searchText)
