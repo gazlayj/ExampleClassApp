@@ -27,9 +27,10 @@ This application demonstrates several iOS architecture concepts:
  update themselves and inform View Models about how the user is interacting with them.
  
  Finally the VM is the View Model. This is the glue between the models and views. View Models are responsible for taking the
- models and transfroming them into the attributes the views need to display. They are also responsible for taking action on the
- models. So when a user edits something in the view, the view informs the view model which then can update the models 
- themselves.
+ models and transfroming them into the attributes the views need to display. For example information from the models that might
+ need to be displayed as text, the view model should handle all formatting and localizing that is needed instead of leaving it 
+ to the view controller to handle. They are also responsible for taking action on the models. So when a user edits something in
+ the view, the view informs the view model which then can update the models themselves.
  
  Keeping these responsibilities in their correct places helps to keep your code clean and ensure well defined responsibilities
  and encapsulation.
