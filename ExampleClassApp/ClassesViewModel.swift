@@ -51,7 +51,7 @@ class ClassesViewModel: NSObject {
     }
     
     func makeAddClassViewModel() -> EditClassViewModel {
-        return EditClassViewModel(title: "Add Class", schoolClass: nil, classUpdater: Repository.shared.classUpdater)
+        return ViewModelFactory.makeAddClassViewModel()
     }
     
     func refreshClasses() {

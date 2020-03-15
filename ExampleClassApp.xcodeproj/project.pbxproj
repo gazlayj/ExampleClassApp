@@ -30,6 +30,7 @@
 		2593F8E4241DEB1A0077914C /* PeopleUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8E3241DEB1A0077914C /* PeopleUpdating.swift */; };
 		2593F8E7241DEB940077914C /* EditClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8E6241DEB940077914C /* EditClassViewModel.swift */; };
 		2593F8E9241DEF110077914C /* EditClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8E8241DEF110077914C /* EditClassViewController.swift */; };
+		2593F8EB241EA7330077914C /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593F8EA241EA7330077914C /* ViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		2593F8E3241DEB1A0077914C /* PeopleUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleUpdating.swift; sourceTree = "<group>"; };
 		2593F8E6241DEB940077914C /* EditClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClassViewModel.swift; sourceTree = "<group>"; };
 		2593F8E8241DEF110077914C /* EditClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClassViewController.swift; sourceTree = "<group>"; };
+		2593F8EA241EA7330077914C /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				2593F8D0241DC8D10077914C /* ClassViewController.swift */,
 				2593F8D2241DCA290077914C /* StudentTableViewCell.swift */,
 				2593F8D4241DCA520077914C /* PersonViewModel.swift */,
+				2593F8EA241EA7330077914C /* ViewModelFactory.swift */,
 				2593F8D8241DE28A0077914C /* Repository Layer */,
 				250673BD241D89EE004F622D /* Data Model */,
 				250673AE241D84D9004F622D /* Assets.xcassets */,
@@ -219,6 +222,7 @@
 				250673AA241D84D7004F622D /* ClassesViewController.swift in Sources */,
 				250673BC241D8870004F622D /* SchoolClass.swift in Sources */,
 				250673A6241D84D7004F622D /* AppDelegate.swift in Sources */,
+				2593F8EB241EA7330077914C /* ViewModelFactory.swift in Sources */,
 				2593F8DC241DE9A00077914C /* PeopleRepository.swift in Sources */,
 				2593F8CD241D94050077914C /* ClassTableViewCell.swift in Sources */,
 				2593F8CB241D8CA60077914C /* ClassesViewModel.swift in Sources */,

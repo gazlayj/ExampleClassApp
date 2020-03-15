@@ -23,7 +23,7 @@ class ClassViewModel {
         
             return lhs.lastName < rhs.lastName
         }
-        .map { PersonViewModel(person: $0) }
+        .map { ViewModelFactory.makePersonViewModel($0) }
     }
     
     private var schoolClass: SchoolClass
@@ -42,6 +42,6 @@ class ClassViewModel {
 
 extension ClassViewModel {
     func makeEditClassViewModel() -> EditClassViewModel {
-        return EditClassViewModel(title: "Edit Class", schoolClass: schoolClass, classUpdater: Repository.shared.classUpdater)
+        return ViewModelFactory.makeEditClassViewModel(schoolClass)
     }
 }
